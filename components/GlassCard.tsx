@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface GlassCardProps {
@@ -12,14 +11,15 @@ export const GlassCard: React.FC<GlassCardProps> = ({ children, className = '', 
     <div 
       onClick={onClick}
       className={`
-        bg-black/40 
-        backdrop-blur-xl 
-        border border-white/10 
+        bg-white/25
+        backdrop-blur-2xl
+        border border-white/40
         rounded-2xl 
         p-6
-        shadow-xl
-        shadow-black/20
-        ${onClick ? 'cursor-pointer hover:bg-black/50 hover:border-white/20 transition-all' : ''}
+        shadow-lg
+        shadow-black/5
+        transition-all duration-200
+        ${onClick ? 'cursor-pointer hover:bg-white/30 hover:border-white/50' : 'hover:bg-white/30'}
         ${className}
       `}
     >
