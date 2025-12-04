@@ -10,9 +10,9 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@components': path.resolve(__dirname, './src/components'),
-      '@pages': path.resolve(__dirname, './src/pages'),
+      '@': path.resolve(__dirname, './'),
+      '@components': path.resolve(__dirname, './components'),
+      '@pages': path.resolve(__dirname, './pages'),
     },
   },
   server: {
@@ -21,6 +21,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
+    sourcemap: false,
   },
 })
