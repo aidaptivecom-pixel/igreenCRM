@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { GlassCard } from '../components/GlassCard';
 import { 
@@ -17,70 +16,14 @@ const TABS = [
 ];
 
 const MOCK_INTEGRATIONS = [
-  { 
-    id: 'airtable',
-    name: 'Airtable',
-    icon: '📊',
-    status: 'connected',
-    details: 'Base: appXXXXXXXX',
-    lastSync: '2025-12-04 12:30'
-  },
-  { 
-    id: 'n8n',
-    name: 'n8n',
-    icon: '⚡',
-    status: 'connected',
-    details: 'https://n8n.igreen.com.ar',
-    lastSync: '2025-12-04 12:35'
-  },
-  { 
-    id: 'whatsapp',
-    name: 'WhatsApp Business',
-    icon: '💬',
-    status: 'connected',
-    details: '+54 9 11 3577-2057',
-    lastSync: 'Verificado'
-  },
-  { 
-    id: 'mercadopago',
-    name: 'MercadoPago',
-    icon: '💳',
-    status: 'connected',
-    details: 'Modo: Producción',
-    lastSync: 'Activo'
-  },
-  { 
-    id: 'arca',
-    name: 'ARCA (AFIP)',
-    icon: '🧾',
-    status: 'error',
-    details: 'Certificado vencido',
-    lastSync: null
-  },
-  { 
-    id: 'gcalendar',
-    name: 'Google Calendar',
-    icon: '📅',
-    status: 'pending',
-    details: 'Requiere autorización',
-    lastSync: null
-  },
-  { 
-    id: 'andreani',
-    name: 'Andreani',
-    icon: '🚚',
-    status: 'pending',
-    details: 'Esperando credenciales',
-    lastSync: null
-  },
-  { 
-    id: 'correo',
-    name: 'Correo Argentino',
-    icon: '📮',
-    status: 'pending',
-    details: 'Esperando credenciales',
-    lastSync: null
-  },
+  { id: 'airtable', name: 'Airtable', icon: '📊', status: 'connected', details: 'Base: appXXXXXXXX', lastSync: '2025-12-04 12:30' },
+  { id: 'n8n', name: 'n8n', icon: '⚡', status: 'connected', details: 'https://n8n.igreen.com.ar', lastSync: '2025-12-04 12:35' },
+  { id: 'whatsapp', name: 'WhatsApp Business', icon: '💬', status: 'connected', details: '+54 9 11 3577-2057', lastSync: 'Verificado' },
+  { id: 'mercadopago', name: 'MercadoPago', icon: '💳', status: 'connected', details: 'Modo: Producción', lastSync: 'Activo' },
+  { id: 'arca', name: 'ARCA (AFIP)', icon: '🧾', status: 'error', details: 'Certificado vencido', lastSync: null },
+  { id: 'gcalendar', name: 'Google Calendar', icon: '📅', status: 'pending', details: 'Requiere autorización', lastSync: null },
+  { id: 'andreani', name: 'Andreani', icon: '🚚', status: 'pending', details: 'Esperando credenciales', lastSync: null },
+  { id: 'correo', name: 'Correo Argentino', icon: '📮', status: 'pending', details: 'Esperando credenciales', lastSync: null },
 ];
 
 const MOCK_USERS = [
@@ -102,16 +45,15 @@ const MOCK_NOTIFICATIONS = [
 const Toggle = ({ enabled, onChange }: { enabled: boolean; onChange?: () => void }) => (
   <button 
     onClick={onChange}
-    className={`w-11 h-6 rounded-full transition-colors relative ${enabled ? 'bg-green-500' : 'bg-gray-600'}`}
+    className={`w-11 h-6 rounded-full transition-colors relative ${enabled ? 'bg-green-500' : 'bg-gray-300'}`}
   >
-    <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all ${enabled ? 'left-6' : 'left-1'}`} />
+    <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all shadow ${enabled ? 'left-6' : 'left-1'}`} />
   </button>
 );
 
 export const Settings: React.FC = () => {
   const [activeTab, setActiveTab] = useState('company');
 
-  // Company Form State (Mock)
   const [companyForm, setCompanyForm] = useState({
     name: 'iGreen Servicio Técnico',
     cuit: '30-71837199-2',
@@ -124,10 +66,10 @@ export const Settings: React.FC = () => {
 
   const getStatusColor = (status: string) => {
     switch(status) {
-      case 'connected': return 'text-green-400 bg-green-500/10 border-green-500/20';
-      case 'pending': return 'text-yellow-400 bg-yellow-500/10 border-yellow-500/20';
-      case 'error': return 'text-red-400 bg-red-500/10 border-red-500/20';
-      default: return 'text-gray-400 bg-gray-500/10 border-gray-500/20';
+      case 'connected': return 'text-green-600 bg-green-500/15 border-green-500/30';
+      case 'pending': return 'text-yellow-600 bg-yellow-500/15 border-yellow-500/30';
+      case 'error': return 'text-red-500 bg-red-500/15 border-red-500/30';
+      default: return 'text-gray-500 bg-gray-500/15 border-gray-500/30';
     }
   };
 
@@ -145,7 +87,7 @@ export const Settings: React.FC = () => {
       
       {/* Sidebar Tabs */}
       <GlassCard className="w-64 p-4 flex flex-col gap-2 h-full shrink-0">
-        <h2 className="text-xl font-semibold px-4 mb-4 flex items-center gap-2">
+        <h2 className="text-xl font-semibold px-4 mb-4 flex items-center gap-2 text-gray-800">
            Configuración
         </h2>
         {TABS.map((tab) => {
@@ -158,8 +100,8 @@ export const Settings: React.FC = () => {
               className={`
                 flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-sm font-medium
                 ${isActive 
-                  ? 'bg-green-500/20 text-green-400 border-l-2 border-green-400' 
-                  : 'text-gray-400 hover:bg-white/5 hover:text-white border-l-2 border-transparent'}
+                  ? 'bg-green-500/20 text-green-600 border-l-2 border-green-500' 
+                  : 'text-gray-500 hover:bg-white/30 hover:text-gray-700 border-l-2 border-transparent'}
               `}
             >
               <Icon size={18} />
@@ -175,10 +117,10 @@ export const Settings: React.FC = () => {
         {/* TAB: EMPRESA */}
         {activeTab === 'company' && (
           <GlassCard className="animate-in slide-up max-w-3xl">
-            <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
+            <div className="flex justify-between items-center mb-6 border-b border-white/30 pb-4">
               <div>
-                <h3 className="text-lg font-semibold">Perfil de Empresa</h3>
-                <p className="text-sm text-gray-400">Información general del negocio visible en comprobantes y web.</p>
+                <h3 className="text-lg font-semibold text-gray-800">Perfil de Empresa</h3>
+                <p className="text-sm text-gray-500">Información general del negocio visible en comprobantes y web.</p>
               </div>
               <button className="btn-primary flex items-center gap-2 text-sm">
                 <Save size={16} /> Guardar Cambios
@@ -187,49 +129,49 @@ export const Settings: React.FC = () => {
 
             <div className="space-y-6">
               <div className="flex items-start gap-6">
-                <div className="w-24 h-24 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center gap-2 text-gray-500 cursor-pointer hover:bg-white/10 transition-colors group">
-                   <div className="p-2 bg-black/20 rounded-full group-hover:scale-110 transition-transform">
+                <div className="w-24 h-24 rounded-2xl bg-white/30 border border-white/30 flex flex-col items-center justify-center gap-2 text-gray-500 cursor-pointer hover:bg-white/40 transition-colors group">
+                   <div className="p-2 bg-white/30 rounded-full group-hover:scale-110 transition-transform">
                       <Upload size={20} />
                    </div>
                    <span className="text-[10px] uppercase font-medium">Logo</span>
                 </div>
                 <div className="flex-1 grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs text-gray-400 mb-1 ml-1">Nombre de Empresa</label>
+                    <label className="block text-xs text-gray-500 mb-1 ml-1">Nombre de Empresa</label>
                     <input type="text" value={companyForm.name} onChange={e => setCompanyForm({...companyForm, name: e.target.value})} className="glass-input w-full" />
                   </div>
                   <div>
-                    <label className="block text-xs text-gray-400 mb-1 ml-1">CUIT</label>
+                    <label className="block text-xs text-gray-500 mb-1 ml-1">CUIT</label>
                     <input type="text" value={companyForm.cuit} onChange={e => setCompanyForm({...companyForm, cuit: e.target.value})} className="glass-input w-full" />
                   </div>
                   <div className="col-span-2">
-                    <label className="block text-xs text-gray-400 mb-1 ml-1">Dirección Completa</label>
+                    <label className="block text-xs text-gray-500 mb-1 ml-1">Dirección Completa</label>
                     <input type="text" value={companyForm.address} onChange={e => setCompanyForm({...companyForm, address: e.target.value})} className="glass-input w-full" />
                   </div>
                 </div>
               </div>
 
-              <div className="h-px bg-white/10" />
+              <div className="h-px bg-white/30" />
 
               <div className="grid grid-cols-2 gap-6">
                  <div>
-                    <label className="block text-xs text-gray-400 mb-1 ml-1">Teléfono Principal</label>
+                    <label className="block text-xs text-gray-500 mb-1 ml-1">Teléfono Principal</label>
                     <input type="text" value={companyForm.phone} onChange={e => setCompanyForm({...companyForm, phone: e.target.value})} className="glass-input w-full" />
                  </div>
                  <div>
-                    <label className="block text-xs text-gray-400 mb-1 ml-1">WhatsApp Business</label>
+                    <label className="block text-xs text-gray-500 mb-1 ml-1">WhatsApp Business</label>
                     <input type="text" value={companyForm.phone} className="glass-input w-full" disabled />
                  </div>
                  <div>
-                    <label className="block text-xs text-gray-400 mb-1 ml-1">Email Contacto</label>
+                    <label className="block text-xs text-gray-500 mb-1 ml-1">Email Contacto</label>
                     <input type="email" value={companyForm.email} onChange={e => setCompanyForm({...companyForm, email: e.target.value})} className="glass-input w-full" />
                  </div>
                  <div>
-                    <label className="block text-xs text-gray-400 mb-1 ml-1">Instagram</label>
+                    <label className="block text-xs text-gray-500 mb-1 ml-1">Instagram</label>
                     <input type="text" value={companyForm.instagram} onChange={e => setCompanyForm({...companyForm, instagram: e.target.value})} className="glass-input w-full" />
                  </div>
                  <div className="col-span-2">
-                    <label className="block text-xs text-gray-400 mb-1 ml-1">Horario Texto (para footer/web)</label>
+                    <label className="block text-xs text-gray-500 mb-1 ml-1">Horario Texto (para footer/web)</label>
                     <input type="text" value={companyForm.hoursText} onChange={e => setCompanyForm({...companyForm, hoursText: e.target.value})} className="glass-input w-full" />
                  </div>
               </div>
@@ -241,15 +183,15 @@ export const Settings: React.FC = () => {
         {activeTab === 'integrations' && (
           <div className="animate-in slide-up grid grid-cols-1 md:grid-cols-2 gap-4">
             {MOCK_INTEGRATIONS.map((integ) => (
-              <GlassCard key={integ.id} className="p-4 flex flex-col justify-between group hover:border-white/20">
+              <GlassCard key={integ.id} className="p-4 flex flex-col justify-between group hover:border-white/50">
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="text-2xl w-10 h-10 flex items-center justify-center bg-white/5 rounded-xl">
+                    <div className="text-2xl w-10 h-10 flex items-center justify-center bg-white/30 rounded-xl">
                       {integ.icon}
                     </div>
                     <div>
-                      <h4 className="font-semibold">{integ.name}</h4>
-                      <p className="text-xs text-gray-400">{integ.details}</p>
+                      <h4 className="font-semibold text-gray-800">{integ.name}</h4>
+                      <p className="text-xs text-gray-500">{integ.details}</p>
                     </div>
                   </div>
                   <div className={`flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full border ${getStatusColor(integ.status)}`}>
@@ -258,13 +200,13 @@ export const Settings: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                <div className="flex items-center justify-between pt-4 border-t border-white/30">
                   <span className="text-xs text-gray-500">
                     {integ.lastSync ? `Sync: ${integ.lastSync}` : 'Sin sincronizar'}
                   </span>
                   <div className="flex gap-2">
                     {integ.status === 'connected' ? (
-                      <button className="text-xs text-gray-400 hover:text-white flex items-center gap-1 px-2 py-1 rounded bg-white/5 hover:bg-white/10 transition-colors">
+                      <button className="text-xs text-gray-600 hover:text-gray-800 flex items-center gap-1 px-2 py-1 rounded bg-white/30 hover:bg-white/40 transition-colors">
                         <RefreshCw size={12} /> Probar
                       </button>
                     ) : (
@@ -272,7 +214,7 @@ export const Settings: React.FC = () => {
                         Conectar
                       </button>
                     )}
-                    <button className="text-gray-500 hover:text-white transition-colors">
+                    <button className="text-gray-500 hover:text-gray-700 transition-colors">
                       <ExternalLink size={14} />
                     </button>
                   </div>
@@ -285,10 +227,10 @@ export const Settings: React.FC = () => {
         {/* TAB: HORARIOS */}
         {activeTab === 'hours' && (
           <GlassCard className="animate-in slide-up max-w-3xl">
-             <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
+             <div className="flex justify-between items-center mb-6 border-b border-white/30 pb-4">
               <div>
-                <h3 className="text-lg font-semibold">Configuración de Horarios</h3>
-                <p className="text-sm text-gray-400">Define la disponibilidad para turnos y atención.</p>
+                <h3 className="text-lg font-semibold text-gray-800">Configuración de Horarios</h3>
+                <p className="text-sm text-gray-500">Define la disponibilidad para turnos y atención.</p>
               </div>
               <button className="btn-primary flex items-center gap-2 text-sm">
                 <Save size={16} /> Guardar
@@ -297,12 +239,12 @@ export const Settings: React.FC = () => {
 
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-3">Días de Atención</label>
+                <label className="block text-sm font-medium text-gray-600 mb-3">Días de Atención</label>
                 <div className="flex gap-2">
                   {['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'].map((day, i) => (
                     <label key={day} className="cursor-pointer">
                       <input type="checkbox" className="peer sr-only" defaultChecked={i < 5} />
-                      <div className="w-12 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-sm text-gray-400 peer-checked:bg-green-500/20 peer-checked:border-green-500/50 peer-checked:text-green-400 transition-all hover:bg-white/10">
+                      <div className="w-12 h-10 rounded-lg bg-white/30 border border-white/30 flex items-center justify-center text-sm text-gray-500 peer-checked:bg-green-500/20 peer-checked:border-green-500/50 peer-checked:text-green-600 transition-all hover:bg-white/40">
                         {day}
                       </div>
                     </label>
@@ -312,7 +254,7 @@ export const Settings: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                   <label className="block text-xs text-gray-400 mb-1 ml-1">Horario Apertura</label>
+                   <label className="block text-xs text-gray-500 mb-1 ml-1">Horario Apertura</label>
                    <select className="glass-input w-full">
                      <option>08:00</option>
                      <option>09:00</option>
@@ -321,7 +263,7 @@ export const Settings: React.FC = () => {
                    </select>
                 </div>
                 <div>
-                   <label className="block text-xs text-gray-400 mb-1 ml-1">Horario Cierre</label>
+                   <label className="block text-xs text-gray-500 mb-1 ml-1">Horario Cierre</label>
                    <select className="glass-input w-full">
                      <option>17:00</option>
                      <option>18:00</option>
@@ -332,7 +274,7 @@ export const Settings: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs text-gray-400 mb-1 ml-1">Duración Slot de Turnos</label>
+                <label className="block text-xs text-gray-500 mb-1 ml-1">Duración Slot de Turnos</label>
                 <div className="flex gap-4 items-center">
                    <select className="glass-input w-64">
                      <option>15 minutos</option>
@@ -344,10 +286,10 @@ export const Settings: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-white/5 rounded-xl p-4 flex items-center justify-between border border-white/5">
+              <div className="bg-white/30 rounded-xl p-4 flex items-center justify-between border border-white/30">
                  <div>
-                   <span className="font-medium text-sm block mb-1">Bloqueo de Almuerzo</span>
-                   <span className="text-xs text-gray-400">No permitir turnos en horario de almuerzo.</span>
+                   <span className="font-medium text-sm block mb-1 text-gray-800">Bloqueo de Almuerzo</span>
+                   <span className="text-xs text-gray-500">No permitir turnos en horario de almuerzo.</span>
                  </div>
                  <div className="flex items-center gap-4">
                     <input type="time" defaultValue="13:00" className="glass-input py-1 px-2 w-24 text-center" />
@@ -363,19 +305,19 @@ export const Settings: React.FC = () => {
         {/* TAB: NOTIFICACIONES */}
         {activeTab === 'notifications' && (
           <GlassCard className="animate-in slide-up max-w-3xl">
-            <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
+            <div className="flex justify-between items-center mb-6 border-b border-white/30 pb-4">
               <div>
-                <h3 className="text-lg font-semibold">Notificaciones Automáticas</h3>
-                <p className="text-sm text-gray-400">Gestiona los mensajes automáticos enviados por WhatsApp/Email.</p>
+                <h3 className="text-lg font-semibold text-gray-800">Notificaciones Automáticas</h3>
+                <p className="text-sm text-gray-500">Gestiona los mensajes automáticos enviados por WhatsApp/Email.</p>
               </div>
             </div>
 
             <div className="space-y-4">
               {MOCK_NOTIFICATIONS.map((notif) => (
-                <div key={notif.id} className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div key={notif.id} className="flex items-center justify-between p-4 bg-white/30 rounded-xl border border-white/30 hover:border-white/40 transition-colors">
                   <div>
-                    <h4 className="font-medium text-sm text-white mb-1">{notif.label}</h4>
-                    <p className="text-xs text-gray-400">{notif.description}</p>
+                    <h4 className="font-medium text-sm text-gray-800 mb-1">{notif.label}</h4>
+                    <p className="text-xs text-gray-500">{notif.description}</p>
                   </div>
                   <Toggle enabled={notif.enabled} />
                 </div>
@@ -387,10 +329,10 @@ export const Settings: React.FC = () => {
         {/* TAB: USUARIOS */}
         {activeTab === 'users' && (
           <GlassCard className="animate-in slide-up max-w-4xl p-0 overflow-hidden">
-             <div className="p-6 border-b border-white/10 flex justify-between items-center">
+             <div className="p-6 border-b border-white/30 flex justify-between items-center">
                 <div>
-                   <h3 className="text-lg font-semibold">Usuarios y Permisos</h3>
-                   <p className="text-sm text-gray-400">Administra el acceso al sistema.</p>
+                   <h3 className="text-lg font-semibold text-gray-800">Usuarios y Permisos</h3>
+                   <p className="text-sm text-gray-500">Administra el acceso al sistema.</p>
                 </div>
                 <button className="btn-secondary flex items-center gap-2 text-sm">
                   <Plus size={16} /> Agregar Usuario
@@ -398,7 +340,7 @@ export const Settings: React.FC = () => {
              </div>
 
              <table className="w-full text-sm text-left">
-                <thead className="bg-white/5 text-gray-400 uppercase text-xs">
+                <thead className="bg-white/30 text-gray-600 uppercase text-xs">
                   <tr>
                     <th className="px-6 py-4">Usuario</th>
                     <th className="px-6 py-4">Rol</th>
@@ -406,32 +348,32 @@ export const Settings: React.FC = () => {
                     <th className="px-6 py-4 text-right">Acciones</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-white/20">
                   {MOCK_USERS.map((user) => (
-                    <tr key={user.id} className="hover:bg-white/5 transition-colors">
+                    <tr key={user.id} className="hover:bg-white/20 transition-colors">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-green-500 to-blue-500 flex items-center justify-center text-xs font-bold text-white">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-green-400 to-blue-500 flex items-center justify-center text-xs font-bold text-white">
                             {user.name.charAt(0)}
                           </div>
                           <div>
-                            <p className="font-medium text-white">{user.name}</p>
-                            <p className="text-xs text-gray-400">{user.email}</p>
+                            <p className="font-medium text-gray-800">{user.name}</p>
+                            <p className="text-xs text-gray-500">{user.email}</p>
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-4">
                         <span className={`px-2 py-0.5 rounded text-[10px] border ${
-                          user.role === 'Admin' ? 'border-purple-500/30 text-purple-400' : 
-                          user.role === 'Técnico' ? 'border-blue-500/30 text-blue-400' :
-                          'border-yellow-500/30 text-yellow-400'
+                          user.role === 'Admin' ? 'border-purple-500/30 text-purple-600' : 
+                          user.role === 'Técnico' ? 'border-blue-500/30 text-blue-600' :
+                          'border-yellow-500/30 text-yellow-600'
                         }`}>
                           {user.role}
                         </span>
                       </td>
                       <td className="px-6 py-4">
                          <span className={`px-2 py-0.5 rounded-full text-xs flex items-center gap-1 w-fit ${
-                           user.status === 'Activo' ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'
+                           user.status === 'Activo' ? 'bg-green-500/15 text-green-600' : 'bg-red-500/15 text-red-500'
                          }`}>
                            <div className={`w-1.5 h-1.5 rounded-full ${user.status === 'Activo' ? 'bg-green-500' : 'bg-red-500'}`} />
                            {user.status}
@@ -439,10 +381,10 @@ export const Settings: React.FC = () => {
                       </td>
                       <td className="px-6 py-4 text-right">
                         <div className="flex justify-end gap-2">
-                           <button className="p-1.5 hover:bg-white/10 rounded text-gray-400 hover:text-white transition-colors">
+                           <button className="p-1.5 hover:bg-white/30 rounded text-gray-500 hover:text-gray-700 transition-colors">
                              <Edit size={16} />
                            </button>
-                           <button className="p-1.5 hover:bg-white/10 rounded text-gray-400 hover:text-red-400 transition-colors">
+                           <button className="p-1.5 hover:bg-white/30 rounded text-gray-500 hover:text-red-500 transition-colors">
                              <Trash2 size={16} />
                            </button>
                         </div>
