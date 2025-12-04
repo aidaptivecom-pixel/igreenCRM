@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,28 +5,28 @@
 /* ===== BASE STYLES ===== */
 @layer base {
   * {
-    @apply border-gray-800; /* Fallback for border-border variable */
+    @apply border-gray-300;
   }
   
   body {
-    @apply text-white antialiased;
-    background-color: #050510;
+    @apply antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    background-color: #0a1628;
     background-image: url('https://i.ibb.co/sJm8JkZs/Firefly-Gemini-Flash-same-picture-high-resolution-542133.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
+    color: #1f2937;
   }
 
-  /* Selection */
   ::selection {
-    @apply bg-igreen/30 text-white;
+    @apply bg-green-500/30 text-white;
   }
 }
 
 /* ===== SCROLLBAR ===== */
 @layer components {
-  /* Custom Scrollbar - Dark Theme */
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -38,15 +37,14 @@
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 3px;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
   }
 
-  /* Hide scrollbar but keep functionality */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -57,90 +55,91 @@
   }
 }
 
-/* ===== GLASS COMPONENTS ===== */
+/* ===== GLASS COMPONENTS (Light macOS Style) ===== */
 @layer components {
   .glass {
-    @apply bg-black/30 backdrop-blur-xl border border-white/10;
+    @apply bg-white/25 backdrop-blur-2xl border border-white/40 shadow-lg shadow-black/5;
   }
   
   .glass-card {
-    @apply bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-xl shadow-black/20;
+    @apply bg-white/25 backdrop-blur-2xl border border-white/40 rounded-2xl p-6 shadow-lg shadow-black/5;
+  }
+
+  .glass-card:hover {
+    @apply bg-white/30 border-white/50;
   }
 
   .glass-card-success {
-    @apply glass-card border-igreen/30 bg-igreen/5;
+    @apply glass-card border-emerald-400/40 bg-emerald-500/15;
   }
 
   .glass-card-warning {
-    @apply glass-card border-yellow-500/30 bg-yellow-500/5;
+    @apply glass-card border-amber-400/40 bg-amber-500/15;
   }
 
   .glass-card-danger {
-    @apply glass-card border-red-500/30 bg-red-500/5;
+    @apply glass-card border-rose-400/40 bg-rose-500/15;
   }
 
-  /* Glass input */
   .glass-input {
-    @apply bg-black/30 backdrop-blur-md border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-green-500/50 focus:ring-1 focus:ring-green-500/20 transition-all;
+    @apply bg-white/20 backdrop-blur-xl border border-white/30 rounded-xl px-4 py-2.5 text-gray-800 placeholder-gray-500 focus:outline-none focus:border-green-500/60 focus:ring-2 focus:ring-green-500/20 transition-all;
   }
 
-  /* Glass button */
   .glass-button {
-    @apply bg-black/30 backdrop-blur-md border border-white/10 rounded-xl px-4 py-2 text-white hover:bg-white/10 transition-all;
+    @apply bg-white/20 backdrop-blur-xl border border-white/30 rounded-xl px-4 py-2 text-gray-700 hover:bg-white/30 hover:border-white/40 transition-all;
   }
 }
 
 /* ===== BUTTONS ===== */
 @layer components {
   .btn-primary {
-    @apply bg-igreen hover:bg-igreen-400 text-black font-medium px-4 py-2 rounded-full 
-           transition-all shadow-[0_0_20px_rgba(16,185,129,0.2)] 
-           hover:shadow-[0_0_30px_rgba(16,185,129,0.3)];
+    @apply bg-green-500 hover:bg-green-400 text-white font-medium px-5 py-2.5 rounded-xl 
+           transition-all shadow-lg shadow-green-500/25 hover:shadow-green-500/40;
   }
 
   .btn-secondary {
-    @apply bg-white/10 hover:bg-white/20 text-white font-medium px-4 py-2 rounded-full 
-           border border-white/10 hover:border-white/20 transition-all;
+    @apply bg-white/25 backdrop-blur-xl hover:bg-white/35 text-gray-700 font-medium px-5 py-2.5 rounded-xl 
+           border border-white/40 hover:border-white/50 transition-all;
   }
 
   .btn-ghost {
-    @apply hover:bg-white/5 text-gray-400 hover:text-white px-3 py-2 rounded-xl transition-all;
+    @apply hover:bg-white/15 text-gray-600 hover:text-gray-800 px-4 py-2 rounded-xl transition-all;
   }
 
   .btn-danger {
-    @apply bg-red-500/20 hover:bg-red-500/30 text-red-400 font-medium px-4 py-2 rounded-full 
-           border border-red-500/30 transition-all;
+    @apply bg-rose-500 hover:bg-rose-400 text-white font-medium px-5 py-2.5 rounded-xl 
+           transition-all shadow-lg shadow-rose-500/25;
   }
 }
 
 /* ===== BADGES ===== */
 @layer components {
   .badge {
-    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
   }
   
   .badge-success {
-    @apply badge bg-igreen/20 text-igreen border border-igreen/30;
+    @apply badge bg-emerald-500/20 text-emerald-700 border border-emerald-500/30;
   }
   
   .badge-warning {
-    @apply badge bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+    @apply badge bg-amber-500/20 text-amber-700 border border-amber-500/30;
   }
   
   .badge-danger {
-    @apply badge bg-red-500/20 text-red-400 border border-red-500/30;
+    @apply badge bg-rose-500/20 text-rose-700 border border-rose-500/30;
   }
   
   .badge-info {
-    @apply badge bg-blue-500/20 text-blue-400 border border-blue-500/30;
+    @apply badge bg-blue-500/20 text-blue-700 border border-blue-500/30;
   }
   
   .badge-neutral {
-    @apply badge bg-white/10 text-gray-400 border border-white/10;
+    @apply badge bg-gray-500/15 text-gray-600 border border-gray-500/20;
   }
 
   .badge-purple {
-    @apply badge bg-purple-500/20 text-purple-400 border border-purple-500/30;
+    @apply badge bg-purple-500/20 text-purple-700 border border-purple-500/30;
   }
 }
 
@@ -151,19 +150,19 @@
   }
   
   .status-online {
-    @apply status-dot bg-igreen animate-pulse;
+    @apply status-dot bg-emerald-500 animate-pulse;
   }
   
   .status-offline {
-    @apply status-dot bg-gray-500;
+    @apply status-dot bg-gray-400;
   }
   
   .status-busy {
-    @apply status-dot bg-yellow-500;
+    @apply status-dot bg-amber-500;
   }
   
   .status-urgent {
-    @apply status-dot bg-red-500 animate-pulse;
+    @apply status-dot bg-rose-500 animate-pulse;
   }
 }
 
@@ -178,27 +177,27 @@
   }
   
   .kanban-card {
-    @apply glass-card p-4 cursor-grab active:cursor-grabbing 
-           hover:border-igreen/30 transition-all;
+    @apply bg-white/25 backdrop-blur-2xl border border-white/40 rounded-2xl p-4 cursor-grab active:cursor-grabbing 
+           hover:bg-white/35 hover:border-white/50 transition-all shadow-lg shadow-black/5;
   }
   
   .kanban-card:active {
-    @apply scale-[1.02] shadow-[0_12px_40px_rgba(0,0,0,0.4)];
+    @apply scale-[1.02] shadow-xl;
   }
 }
 
 /* ===== TABLES ===== */
 @layer components {
   .table-container {
-    @apply overflow-x-auto;
+    @apply overflow-x-auto bg-white/20 backdrop-blur-2xl border border-white/30 rounded-2xl;
   }
   
   .table-glass {
-    @apply w-full text-sm text-left;
+    @apply w-full text-sm text-left text-gray-700;
   }
   
   .table-glass thead {
-    @apply bg-white/5 text-gray-400 uppercase text-xs;
+    @apply bg-white/30 text-gray-600 uppercase text-xs;
   }
   
   .table-glass th {
@@ -206,11 +205,11 @@
   }
   
   .table-glass tbody {
-    @apply divide-y divide-white/5;
+    @apply divide-y divide-white/20;
   }
   
   .table-glass tr {
-    @apply hover:bg-white/5 transition-colors;
+    @apply hover:bg-white/15 transition-colors;
   }
   
   .table-glass td {
@@ -230,26 +229,19 @@
   .stagger-4 { animation-delay: 0.4s; }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ===== FOCUS STATES ===== */
 @layer base {
   *:focus-visible {
-    @apply outline-none ring-2 ring-igreen/50 ring-offset-2 ring-offset-dark;
+    @apply outline-none ring-2 ring-green-500/50 ring-offset-2 ring-offset-white/10;
   }
-}
-
-/* ===== LIGHT MODE OVERRIDES ===== */
-.light {
-  @apply bg-[#F5F5F7] text-[#1D1D1F];
-}
-
-.light .glass {
-  @apply bg-white/70 border-black/10 shadow-[0_8px_32px_rgba(0,0,0,0.1)];
-}
-
-.light .glass-card:hover {
-  @apply bg-white/80 border-black/20;
-}
-
-.light .glass-input {
-  @apply bg-black/5 border-black/10 focus:border-igreen focus:ring-igreen/30;
 }
