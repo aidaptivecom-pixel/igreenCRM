@@ -56,18 +56,18 @@ export const Reports: React.FC = () => {
     <div className="flex flex-col gap-6">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <h2 className="text-xl font-semibold flex items-center gap-2">
-          <BarChart3 className="text-green-400" /> Reportes
+        <h2 className="text-xl font-semibold flex items-center gap-2 text-gray-800">
+          <BarChart3 className="text-green-500" /> Reportes
         </h2>
         
         <div className="flex flex-wrap items-center gap-4">
-          <div className="flex bg-white/5 rounded-xl p-1 border border-white/10">
+          <div className="flex bg-white/30 rounded-xl p-1 border border-white/30">
             {['Hoy', 'Semana', 'Mes', 'Año'].map((p) => (
               <button
                 key={p}
                 onClick={() => setPeriod(p)}
                 className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                  period === p ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'
+                  period === p ? 'bg-white/50 text-gray-800 shadow-sm' : 'text-gray-500 hover:text-gray-700'
                 }`}
               >
                 {p}
@@ -85,52 +85,52 @@ export const Reports: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <GlassCard className="p-4 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-3">
-             <div className="bg-green-500/10 p-2 rounded-full text-green-400">
+             <div className="bg-green-500/15 p-2 rounded-full text-green-600">
                <DollarSign size={20} />
              </div>
           </div>
-          <p className="text-gray-400 text-sm font-medium uppercase mb-1">Ingresos</p>
-          <h3 className="text-2xl font-bold text-white mb-2">$1.245.000</h3>
-          <div className="flex items-center gap-1 text-xs font-medium text-green-400 bg-green-500/10 w-fit px-2 py-1 rounded-full">
+          <p className="text-gray-500 text-sm font-medium uppercase mb-1">Ingresos</p>
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">$1.245.000</h3>
+          <div className="flex items-center gap-1 text-xs font-medium text-green-600 bg-green-500/15 w-fit px-2 py-1 rounded-full">
             <TrendingUp size={12} /> +23%
           </div>
         </GlassCard>
 
         <GlassCard className="p-4 relative overflow-hidden">
            <div className="absolute top-0 right-0 p-3">
-             <div className="bg-red-500/10 p-2 rounded-full text-red-400">
+             <div className="bg-red-500/15 p-2 rounded-full text-red-500">
                <TrendingDown size={20} />
              </div>
           </div>
-          <p className="text-gray-400 text-sm font-medium uppercase mb-1">Gastos</p>
-          <h3 className="text-2xl font-bold text-white mb-2">$312.000</h3>
-          <div className="flex items-center gap-1 text-xs font-medium text-red-400 bg-red-500/10 w-fit px-2 py-1 rounded-full">
+          <p className="text-gray-500 text-sm font-medium uppercase mb-1">Gastos</p>
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">$312.000</h3>
+          <div className="flex items-center gap-1 text-xs font-medium text-red-500 bg-red-500/15 w-fit px-2 py-1 rounded-full">
             <TrendingUp size={12} /> +8%
           </div>
         </GlassCard>
 
         <GlassCard className="p-4 relative overflow-hidden">
            <div className="absolute top-0 right-0 p-3">
-             <div className="bg-blue-500/10 p-2 rounded-full text-blue-400">
+             <div className="bg-blue-500/15 p-2 rounded-full text-blue-600">
                <DollarSign size={20} />
              </div>
           </div>
-          <p className="text-gray-400 text-sm font-medium uppercase mb-1">Ganancia</p>
-          <h3 className="text-2xl font-bold text-white mb-2">$933.000</h3>
-          <div className="flex items-center gap-1 text-xs font-medium text-blue-400 bg-blue-500/10 w-fit px-2 py-1 rounded-full">
+          <p className="text-gray-500 text-sm font-medium uppercase mb-1">Ganancia</p>
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">$933.000</h3>
+          <div className="flex items-center gap-1 text-xs font-medium text-blue-600 bg-blue-500/15 w-fit px-2 py-1 rounded-full">
             <TrendingUp size={12} /> +31%
           </div>
         </GlassCard>
 
         <GlassCard className="p-4 relative overflow-hidden">
            <div className="absolute top-0 right-0 p-3">
-             <div className="bg-purple-500/10 p-2 rounded-full text-purple-400">
+             <div className="bg-purple-500/15 p-2 rounded-full text-purple-600">
                <Percent size={20} />
              </div>
           </div>
-          <p className="text-gray-400 text-sm font-medium uppercase mb-1">Margen</p>
-          <h3 className="text-2xl font-bold text-white mb-2">75%</h3>
-          <div className="flex items-center gap-1 text-xs font-medium text-purple-400 bg-purple-500/10 w-fit px-2 py-1 rounded-full">
+          <p className="text-gray-500 text-sm font-medium uppercase mb-1">Margen</p>
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">75%</h3>
+          <div className="flex items-center gap-1 text-xs font-medium text-purple-600 bg-purple-500/15 w-fit px-2 py-1 rounded-full">
             <TrendingUp size={12} /> +5pp
           </div>
         </GlassCard>
@@ -139,17 +139,18 @@ export const Reports: React.FC = () => {
       {/* Charts Row 1 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <GlassCard className="lg:col-span-2 min-h-[400px]">
-          <h3 className="text-lg font-semibold mb-6">Ingresos por Día</h3>
+          <h3 className="text-lg font-semibold mb-6 text-gray-800">Ingresos por Día</h3>
           <div className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={revenueByDay}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" vertical={false} />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#888'}} dy={10} />
-                <YAxis axisLine={false} tickLine={false} tick={{fill: '#888'}} />
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.1)" vertical={false} />
+                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#6B7280'}} dy={10} />
+                <YAxis axisLine={false} tickLine={false} tick={{fill: '#6B7280'}} />
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#141414', border: '1px solid #333', borderRadius: '12px' }}
-                  itemStyle={{ color: '#fff' }}
-                  cursor={{fill: 'rgba(255,255,255,0.05)'}}
+                  contentStyle={{ backgroundColor: 'rgba(255,255,255,0.95)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}
+                  itemStyle={{ color: '#374151' }}
+                  labelStyle={{ color: '#1F2937', fontWeight: 600 }}
+                  cursor={{fill: 'rgba(0,0,0,0.05)'}}
                   formatter={(value: number) => [`$${value.toLocaleString()}`, '']}
                 />
                 <Legend iconType="circle" wrapperStyle={{ paddingTop: '20px' }} />
@@ -161,7 +162,7 @@ export const Reports: React.FC = () => {
         </GlassCard>
 
         <GlassCard className="min-h-[400px]">
-          <h3 className="text-lg font-semibold mb-6">Reparaciones por Tipo</h3>
+          <h3 className="text-lg font-semibold mb-6 text-gray-800">Reparaciones por Tipo</h3>
           <div className="h-[300px] w-full relative">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -179,15 +180,14 @@ export const Reports: React.FC = () => {
                   ))}
                 </Pie>
                 <Tooltip 
-                   contentStyle={{ backgroundColor: '#141414', border: '1px solid #333', borderRadius: '12px' }}
-                   itemStyle={{ color: '#fff' }}
+                   contentStyle={{ backgroundColor: 'rgba(255,255,255,0.95)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: '12px' }}
+                   itemStyle={{ color: '#374151' }}
                 />
                 <Legend iconType="circle" layout="vertical" verticalAlign="middle" align="right" />
               </PieChart>
             </ResponsiveContainer>
-             {/* Center Text */}
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none pr-[80px]"> {/* pr-80 to offset legend if needed, but legend is right aligned */}
-                <span className="text-3xl font-bold text-white">142</span>
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none pr-[80px]">
+                <span className="text-3xl font-bold text-gray-800">142</span>
                 <span className="block text-xs text-gray-500">Total</span>
              </div>
           </div>
@@ -197,17 +197,17 @@ export const Reports: React.FC = () => {
       {/* Charts Row 2 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <GlassCard className="lg:col-span-2 min-h-[400px]">
-          <h3 className="text-lg font-semibold mb-6">Top 5 Productos Vendidos</h3>
+          <h3 className="text-lg font-semibold mb-6 text-gray-800">Top 5 Productos Vendidos</h3>
           <div className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={topProducts} layout="vertical" margin={{ left: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" horizontal={true} vertical={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.1)" horizontal={true} vertical={false} />
                 <XAxis type="number" hide />
-                <YAxis dataKey="name" type="category" width={150} axisLine={false} tickLine={false} tick={{fill: '#ccc', fontSize: 12}} />
+                <YAxis dataKey="name" type="category" width={150} axisLine={false} tickLine={false} tick={{fill: '#374151', fontSize: 12}} />
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#141414', border: '1px solid #333', borderRadius: '12px' }}
-                  itemStyle={{ color: '#fff' }}
-                  cursor={{fill: 'rgba(255,255,255,0.05)'}}
+                  contentStyle={{ backgroundColor: 'rgba(255,255,255,0.95)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: '12px' }}
+                  itemStyle={{ color: '#374151' }}
+                  cursor={{fill: 'rgba(0,0,0,0.05)'}}
                 />
                 <Bar dataKey="ventas" fill="#8B5CF6" radius={[0, 4, 4, 0]} barSize={20} />
               </BarChart>
@@ -216,7 +216,7 @@ export const Reports: React.FC = () => {
         </GlassCard>
 
         <GlassCard className="min-h-[400px]">
-          <h3 className="text-lg font-semibold mb-6">Origen de Clientes</h3>
+          <h3 className="text-lg font-semibold mb-6 text-gray-800">Origen de Clientes</h3>
           <div className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -234,8 +234,8 @@ export const Reports: React.FC = () => {
                   ))}
                 </Pie>
                 <Tooltip 
-                   contentStyle={{ backgroundColor: '#141414', border: '1px solid #333', borderRadius: '12px' }}
-                   itemStyle={{ color: '#fff' }}
+                   contentStyle={{ backgroundColor: 'rgba(255,255,255,0.95)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: '12px' }}
+                   itemStyle={{ color: '#374151' }}
                 />
                 <Legend iconType="circle" wrapperStyle={{ paddingTop: '20px' }} />
               </PieChart>
@@ -245,27 +245,27 @@ export const Reports: React.FC = () => {
       </div>
 
       {/* Detailed KPIs */}
-      <h3 className="text-lg font-semibold mt-2">KPIs Detallados</h3>
+      <h3 className="text-lg font-semibold mt-2 text-gray-800">KPIs Detallados</h3>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <GlassCard className="p-4 text-center">
-          <p className="text-xs text-gray-400 uppercase mb-1">Ticket Promedio Venta</p>
-          <p className="text-xl font-bold text-white">${kpiData.avgTicketSale.toLocaleString()}</p>
+          <p className="text-xs text-gray-500 uppercase mb-1">Ticket Promedio Venta</p>
+          <p className="text-xl font-bold text-gray-800">${kpiData.avgTicketSale.toLocaleString()}</p>
         </GlassCard>
         <GlassCard className="p-4 text-center">
-          <p className="text-xs text-gray-400 uppercase mb-1">Ticket Promedio Reparación</p>
-          <p className="text-xl font-bold text-white">${kpiData.avgTicketRepair.toLocaleString()}</p>
+          <p className="text-xs text-gray-500 uppercase mb-1">Ticket Promedio Reparación</p>
+          <p className="text-xl font-bold text-gray-800">${kpiData.avgTicketRepair.toLocaleString()}</p>
         </GlassCard>
         <GlassCard className="p-4 text-center">
-          <p className="text-xs text-gray-400 uppercase mb-1">Tiempo Promedio</p>
-          <p className="text-xl font-bold text-white">{kpiData.avgRepairTime} días</p>
+          <p className="text-xs text-gray-500 uppercase mb-1">Tiempo Promedio</p>
+          <p className="text-xl font-bold text-gray-800">{kpiData.avgRepairTime} días</p>
         </GlassCard>
         <GlassCard className="p-4 text-center">
-          <p className="text-xs text-gray-400 uppercase mb-1">Tasa Conversión</p>
-          <p className="text-xl font-bold text-green-400">{kpiData.conversionRate}%</p>
+          <p className="text-xs text-gray-500 uppercase mb-1">Tasa Conversión</p>
+          <p className="text-xl font-bold text-green-600">{kpiData.conversionRate}%</p>
         </GlassCard>
         <GlassCard className="p-4 text-center">
-          <p className="text-xs text-gray-400 uppercase mb-1">Tasa Garantía</p>
-          <p className="text-xl font-bold text-yellow-400">{kpiData.warrantyRate}%</p>
+          <p className="text-xs text-gray-500 uppercase mb-1">Tasa Garantía</p>
+          <p className="text-xl font-bold text-yellow-600">{kpiData.warrantyRate}%</p>
         </GlassCard>
       </div>
     </div>
